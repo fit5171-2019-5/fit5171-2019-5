@@ -41,6 +41,8 @@ public class LaunchServiceProvider extends Entity {
     public int getYearFounded() {
         return yearFounded;
     }
+    public void setYearFounded(int yearFounded)
+    {this.yearFounded = yearFounded;}
 
 
 
