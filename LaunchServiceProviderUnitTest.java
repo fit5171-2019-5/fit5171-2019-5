@@ -52,5 +52,37 @@ public class LaunchServiceProviderUnitTest {
         assertEquals("country cannot be null or empty", exception.getMessage());
     }
 
+    @DisplayName("should return true when two have the same name, country and yearFounded")
+    @Test
+    public void shouldReturnTureIfAllSame()
+    {
+        String name = "qwe";
+        String country = "asd";
+        int yearFounede = 2019;
+        L.setName(name);
+        L.setCountry(country);
+        L.setYearFounded(yearFounede);
+        LaunchServiceProvider anotherL = new LaunchServiceProvider("",123,"");
+        anotherL.setName(name);
+        anotherL.setCountry(country);
+        anotherL.setYearFounded(yearFounede);
+        assertTrue(L.equals(anotherL));
+    }
+
+
+    @DisplayName("should return false when two are different")
+    @Test
+    public void shouldReturnFalseIfDifferent()
+    {
+        L.setName("a");
+        L.setCountry("z");
+        L.setYearFounded(2018);
+        LaunchServiceProvider anotherL = new LaunchServiceProvider("",123,"");
+        anotherL.setName("b");
+        anotherL.setCountry("x");
+        anotherL.setYearFounded(2019);
+        assertFalse(L.equals(anotherL));
+    }
+
 
 }
